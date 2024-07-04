@@ -1,5 +1,19 @@
-﻿<h3>Server Is Online</h3>
+﻿<h3 data-name="@server.ServerName"
+    data-status="Server is @(server.IsOnline? "online" : "offline")"
+    style= "color: @(server.IsOnline? "green" : "red")">
+        @server.ServerName is in @server.ServerLocation that is @(server.IsOnline?"online" : "offline")
+</h3>
+<br
+<div style="@($"color:{(server.IsOnline?"green" : "red")}")">
+    Another way to set style code wise
+</div>
 
-@code {
-
+@code 
+{
+    private Server server = new Server()
+    {
+        ServerName = "Server 1",
+        ServerLocation = "USA",
+        ServerCreationDate = DateTime.Now,
+    };
 }
